@@ -46,9 +46,9 @@ class UserProfileController extends Controller
      */
     public function show($id)
     {
-        //
+        $userprofile = UserProfile::findOrFail($id);
+        return view('userprofiles.show',['profile'=>$userprofile]);
     }
-
     /**
      * Show the form for editing the specified resource.
      *

@@ -17,9 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/userprofiles/{username}',function($username){
-    return view('userprofile',['username'=>$username]);
-});
+Route::get('/userprofiles/{username}',[UserProfileController::class, 'show']);
 
 Route::get('/userprofiles',[UserProfileController::class, 'index']);
 
