@@ -22,7 +22,7 @@ class CreatePostsTable extends Migration
             $table->string('contents');
             $table->integer('upvotes');
             //Foreign key constraint
-            $table->foreign('posterid')->references('id')->on('user_profiles')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('posterid')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

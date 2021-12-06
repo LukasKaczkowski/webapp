@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\UserProfile;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
-class UserProfileTableSeeder extends Seeder
+class UserTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,8 +15,8 @@ class UserProfileTableSeeder extends Seeder
     public function run()
     {
         //Create admin user using manual data entry.
-        $admin = new UserProfile;
-        $admin->username = "alice36";
+        $admin = new User;
+        $admin->name = "alice36";
         $admin->password = "password1";
         $admin->email = "alice.smith@gmail.com";
         $admin->karma = 100;
@@ -24,7 +24,7 @@ class UserProfileTableSeeder extends Seeder
         $admin->save();
 
         //Generate 10 other users using Faker.
-        $users = UserProfile::factory()->count(10)->create();
+        $users = User::factory()->count(10)->create();
 
     }
 }

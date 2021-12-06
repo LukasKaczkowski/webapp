@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/userprofiles/{username}',[UserProfileController::class, 'show']);
+Route::get('/users/{username}',[UserController::class, 'show']);
 
-Route::get('/userprofiles',[UserProfileController::class, 'index']);
+Route::get('/users',[UserController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

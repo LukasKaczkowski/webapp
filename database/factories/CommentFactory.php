@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Post;
-use App\Models\UserProfile;
+use App\Models\User;
 
 class CommentFactory extends Factory
 {
@@ -16,7 +16,7 @@ class CommentFactory extends Factory
     public function definition()
     {
         $numberOfPosts = Post::count();
-        $numberOfUsers = UserProfile::count();
+        $numberOfUsers = User::count();
         return [
             //Generate random data using faker. Username has to be unique.
             'commenterid'=>$this->faker->numberBetween(1,$numberOfUsers),

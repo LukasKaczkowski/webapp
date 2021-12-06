@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\UserProfile;
+use App\Models\User;
 
 class PostFactory extends Factory
 {
@@ -14,10 +14,10 @@ class PostFactory extends Factory
      */
     public function definition()
     {
-        $numberOfUserProfiles = UserProfile::count();
+        $numberOfUsers = User::count();
         return [
             //Generate random data using faker. Username has to be unique.
-            'posterid'=>$this->faker->numberBetween(1,$numberOfUserProfiles),
+            'posterid'=>$this->faker->numberBetween(1,$numberOfUsers),
             'title'=>$this->faker->realText(20,1),
             'contents'=>$this->faker->realText(200,1),
             'upvotes'=>$this->faker->randomDigit,

@@ -21,7 +21,7 @@ class CreateCommentsTable extends Migration
             $table->string('message');
             $table->integer('score');
             //Foreign key constraints
-            $table->foreign('commenterid')->references('id')->on('user_profiles')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('commenterid')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('postid')->references('id')->on('posts')->onDelete('cascade')->onUpdate('cascade');
         });
     }
