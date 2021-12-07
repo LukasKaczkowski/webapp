@@ -22,7 +22,7 @@ class CommentFactory extends Factory
             'user_id'=>$this->faker->numberBetween(1,$numberOfUsers),
             'post_id'=>$this->faker->numberBetween(1,$numberOfPosts),
             'message'=>$this->faker->realText(10,1),
-            'score'=>$this->faker->randomDigit,
+            
         ];
     }
 }

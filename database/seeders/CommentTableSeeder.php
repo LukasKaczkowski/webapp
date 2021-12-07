@@ -19,7 +19,6 @@ class CommentTableSeeder extends Seeder
         $firstComment->user_id = 2;
         $firstComment->post_id = 1;
         $firstComment->message = "First!";
-        $firstComment->score = 2;
         $firstComment->save();
 
         $comments = Comment::factory()->count(50)->create();

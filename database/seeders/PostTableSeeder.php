@@ -19,7 +19,7 @@ class PostTableSeeder extends Seeder
         $adminPost->user_id = 1;
         $adminPost->title = "My first post";
         $adminPost->contents = "Hello everyone, this is my first post!";
-        $adminPost->upvotes = 10;
+        $adminPost->likes = 10;
         $adminPost->save();
 
         $posts = Post::factory()->count(20)->create();
