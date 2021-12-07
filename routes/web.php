@@ -18,13 +18,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/users/{username}',[UserController::class, 'show']);
 
 Route::get('/users',[UserController::class, 'index']);
-
-Route::get('/posts/{post}',[PostController::class, 'show']);
+Route::get('/users/{username}',[UserController::class, 'show'])
+    ->name('users.show');
 
 Route::get('/posts',[PostController::class, 'index']);
+Route::get('/posts/{post}',[PostController::class, 'show'])
+    ->name('posts.show');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
