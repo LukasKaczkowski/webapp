@@ -17,12 +17,12 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->timestamps();
 
-            $table->bigInteger('posterid')->unsigned();
+            $table->bigInteger('poster_id')->unsigned();
             $table->string('title');
             $table->string('contents');
             $table->integer('upvotes');
             //Foreign key constraint
-            $table->foreign('posterid')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('poster_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

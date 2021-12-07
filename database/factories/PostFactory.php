@@ -17,7 +17,7 @@ class PostFactory extends Factory
         $numberOfUsers = User::count();
         return [
             //Generate random data using faker. Username has to be unique.
-            'posterid'=>$this->faker->numberBetween(1,$numberOfUsers),
+            'poster_id'=>$this->faker->numberBetween(1,$numberOfUsers),
             'title'=>$this->faker->realText(20,1),
             'contents'=>$this->faker->realText(200,1),
             'upvotes'=>$this->faker->randomDigit,

@@ -19,8 +19,8 @@ class CommentFactory extends Factory
         $numberOfUsers = User::count();
         return [
             //Generate random data using faker. Username has to be unique.
-            'commenterid'=>$this->faker->numberBetween(1,$numberOfUsers),
-            'postid'=>$this->faker->numberBetween(1,$numberOfPosts),
+            'commenter_id'=>$this->faker->numberBetween(1,$numberOfUsers),
+            'post_id'=>$this->faker->numberBetween(1,$numberOfPosts),
             'message'=>$this->faker->realText(10,1),
             'score'=>$this->faker->randomDigit,
         ];

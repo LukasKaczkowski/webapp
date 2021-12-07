@@ -16,8 +16,8 @@ class CommentTableSeeder extends Seeder
     {
         //Create comment by 2nd user on 1st post using manual data entry.
         $firstComment = new Comment;
-        $firstComment->commenterid = 2;
-        $firstComment->postid = 1;
+        $firstComment->commenter_id = 2;
+        $firstComment->post_id = 1;
         $firstComment->message = "First!";
         $firstComment->score = 2;
         $firstComment->save();

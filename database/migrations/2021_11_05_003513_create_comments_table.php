@@ -16,13 +16,13 @@ class CreateCommentsTable extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->bigInteger('commenterid')->unsigned();
-            $table->bigInteger('postid')->unsigned();
+            $table->bigInteger('commenter_id')->unsigned();
+            $table->bigInteger('post_id')->unsigned();
             $table->string('message');
             $table->integer('score');
             //Foreign key constraints
-            $table->foreign('commenterid')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('postid')->references('id')->on('posts')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('commenter_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

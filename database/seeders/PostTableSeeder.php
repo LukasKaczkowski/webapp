@@ -16,7 +16,7 @@ class PostTableSeeder extends Seeder
     {
         //Create post by 'admin' user (id 1) using manual data entry.
         $adminPost = new Post;
-        $adminPost->posterid = 1;
+        $adminPost->poster_id = 1;
         $adminPost->title = "My first post";
         $adminPost->contents = "Hello everyone, this is my first post!";
         $adminPost->upvotes = 10;
