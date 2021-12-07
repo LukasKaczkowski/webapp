@@ -6,9 +6,7 @@
     <p>All Posts on this forum:</p>
     <ul>
         @foreach ($posts as $post)
-
-        <li>Title:{{$post->title}}, Posted by TODO</li>
-            
+        <li>Title:{{$post->title}}, Posted by user: {{$post->user->name}}</li>
         @endforeach
     </ul>
 @endsection
