@@ -7,9 +7,12 @@
     <title>User Forum: @yield('title')</title>
     <link href = "{{asset('css/app.css')}}" rel="stylesheet">
 </head>
-<body class='bg-gray-400'>
+<body class='bg-gray-200'>
     <nav class='bg-gray-600 flex space-x-4'>
-        <button class="flex-1 m-4">Home</button> <button class="flex-1 m-4">Users</button> <button class="flex-1 m-4">My Profile</button> <button class="flex-1 m-4">Logout</button>
+        <a href='{{route('posts.index')}}'> <button class="flex-1 m-4">Home</button> </a>
+        <a href='{{route('users.index')}}'> <button class="flex-1 m-4">Users</button> </a>
+        <button class="flex-1 m-4">My Profile</button>
+        <button class="flex-1 m-4">Logout</button>
     </nav>
 
     <div class='m-8'>

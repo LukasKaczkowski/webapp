@@ -7,13 +7,13 @@
     <ul>
         @foreach ($posts as $post)
         <li>
-            <div class='post'>
-                <div class='post-title'>
+            <div class='bg-gray-300 ml-4 mt-8 rounded-2xl'>
+                <div class='font-bold pl-2 pt-2'>
                     <a href="{{route('posts.show',$post)}}">{{$post->title}}</a>
                 </div>
 
-                <div class='post-user'> 
-                By: {{$post->user->name}}
+                <div class='mt-4 p-2'> 
+                By: <a href='{{route('users.show',$post->user->id)}}' class='font-bold'> {{$post->user->name}}</a>
                 </div>
             </div>
             </li>

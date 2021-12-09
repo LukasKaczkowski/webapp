@@ -19,11 +19,13 @@ Route::get('/', function () {
 });
 
 
-Route::get('/users',[UserController::class, 'index']);
+Route::get('/users',[UserController::class, 'index'])
+    ->name('users.index');
 Route::get('/users/{username}',[UserController::class, 'show'])
     ->name('users.show');
 
-Route::get('/posts',[PostController::class, 'index']);
+Route::get('/posts',[PostController::class, 'index'])
+    ->name('posts.index');
 Route::get('/posts/{post}',[PostController::class, 'show'])
     ->name('posts.show');
 
