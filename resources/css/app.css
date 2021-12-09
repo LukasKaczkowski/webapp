@@ -1,3 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+button{
+    @apply bg-indigo-400 hover:bg-indigo-700 text-2xl rounded py-1 px-2
+}

@@ -6,8 +6,7 @@
     <p>All users signed up to the forum:</p>
     <ul>
         @foreach ($userprofiles as $userprofile)
-        <li>{{$userprofile->username}}</li>
-            
+        <li>{{$userprofile->name}}</li>
         @endforeach
     </ul>
 @endsection
