@@ -12,7 +12,13 @@
         <a href='{{route('posts.index')}}'> <button class="flex-1 m-4">Home</button> </a>
         <a href='{{route('users.index')}}'> <button class="flex-1 m-4">Users</button> </a>
         <button class="flex-1 m-4">My Profile</button>
-        <button class="flex-1 m-4">Logout</button>
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <a href='{{route('logout')}}' onclick="event.preventDefault(); this.closest('form').submit();">
+                <button class="flex-1 m-4">  Logout 
+                </button>
+            </a>       
+        </form>
     </nav>
 
     <div class='m-8'>
