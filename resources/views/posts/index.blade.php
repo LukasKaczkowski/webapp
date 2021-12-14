@@ -21,5 +21,6 @@
             </li>
         @endforeach
     </ul>
+    <p> <a href="{{route('posts.create')}}">Submit new post </a> <p> 
     {{$posts->links()}}
 @endsection

@@ -26,8 +26,12 @@ Route::get('/users/{username}',[UserController::class, 'show'])
 
 Route::get('/posts',[PostController::class, 'index'])
     ->name('posts.index');
+Route::get('/posts/create',[PostController::class, 'create'])
+    ->middleware(['auth'])->name('posts.create'); 
+Route::post('/posts',[PostController::class, 'store'])
+    ->middleware(['auth'])->name('posts.store'); 
 Route::get('/posts/{post}',[PostController::class, 'show'])
-    ->name('posts.show');
+    ->middleware(['auth'])->name('posts.show');
 
 
 Route::get('/dashboard', function () {

@@ -1,10 +1,6 @@
 <x-guest-layout>
     <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+        
 
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -16,15 +12,15 @@
             @csrf
 
             <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
+            <div class='bg-gray-300 ml-4 mt-8 rounded-2xl'>
+                <x-label class='ml-2 font-bold' for="email" :value="__('Email')" />
 
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+            <div class='bg-gray-300 ml-4 mt-8 rounded-2xl'>
+                <x-label class='ml-2 font-bold' for="password" :value="__('Password')" />
 
                 <x-input id="password" class="block mt-1 w-full"
                                 type="password"
@@ -47,7 +43,7 @@
                     </a>
                 @endif
 
-                <x-button class="ml-3">
+                <x-button class='ml-4 bg-indigo-400 hover:bg-indigo-700 text-xl rounded py-1 px-2'>
                     {{ __('Log in') }}
                 </x-button>
             </div>

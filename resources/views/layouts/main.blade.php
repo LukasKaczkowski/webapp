@@ -12,6 +12,11 @@
         <a href='{{route('posts.index')}}'> <button class="flex-1 m-4">Home</button> </a>
         <a href='{{route('users.index')}}'> <button class="flex-1 m-4">Users</button> </a>
         <button class="flex-1 m-4">My Profile</button>
+
+        @if (Auth::id()==null)
+            <p1> <a href='{{route('login')}}'> <button class="flex-1 m-4">Login</button> </a></p1>
+            <p1> <a href='{{route('register')}}'> <button class="flex-1 m-4">Register</button> </a></p1>
+        @else
         <form method="POST" action="{{ route('logout') }}">
             @csrf
             <a href='{{route('logout')}}' onclick="event.preventDefault(); this.closest('form').submit();">
@@ -19,6 +24,8 @@
                 </button>
             </a>       
         </form>
+        @endif
+        
     </nav>
 
     <div class='m-8'>
