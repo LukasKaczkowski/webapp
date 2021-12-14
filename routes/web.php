@@ -31,7 +31,7 @@ Route::get('/posts/create',[PostController::class, 'create'])
 Route::post('/posts',[PostController::class, 'store'])
     ->middleware(['auth'])->name('posts.store'); 
 Route::get('/posts/{post}',[PostController::class, 'show'])
-    ->middleware(['auth'])->name('posts.show');
+    ->name('posts.show');
 
 
 Route::get('/dashboard', function () {

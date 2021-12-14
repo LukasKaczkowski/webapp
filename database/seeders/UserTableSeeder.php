@@ -16,9 +16,11 @@ class UserTableSeeder extends Seeder
     {
         //Create admin user using manual data entry.
         $admin = new User;
-        $admin->name = "alice36";
-        $admin->password = "password1";
-        $admin->email = "alice.smith@gmail.com";
+        $admin->name = 'admin';
+
+        //Password is admin123
+        $admin->password = '$2y$10$rkwgQbgXfzRVErX8s/KXU.RrMyB0DU8VbkkK2ehOJDnis6LGP8f0q';
+        $admin->email = 'admin@gmail.com';
         $admin->score = 100;
         $admin->save();
 

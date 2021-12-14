@@ -3,6 +3,9 @@
 @section('title','All Posts')
 
 @section('content')
+    <div class='flex justify-center'>
+    <button> <a href="{{route('posts.create')}}">Submit new post </a> </button> 
+    </div>
     <p>All Posts on this forum:</p>
     <ul>
         @foreach ($posts as $post)
@@ -21,6 +24,6 @@
             </li>
         @endforeach
     </ul>
-    <p> <a href="{{route('posts.create')}}">Submit new post </a> <p> 
+    
     {{$posts->links()}}
 @endsection
