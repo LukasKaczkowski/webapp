@@ -21,7 +21,7 @@ class UserTableSeeder extends Seeder
         //Password is admin123
         $admin->password = '$2y$10$rkwgQbgXfzRVErX8s/KXU.RrMyB0DU8VbkkK2ehOJDnis6LGP8f0q';
         $admin->email = 'admin@gmail.com';
-        $admin->score = 100;
+        $admin->isAdmin = true;
         $admin->save();
 
         //Generate 10 other users using Faker.

@@ -73,7 +73,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view('posts.edit',['post'=>$post]);
     }
 
     /**
@@ -84,8 +85,17 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   
+        $validatedData = $request->validate([
+            'title' =>  'required|max:127',
+            'contents' => 'required|max:1023',
+        ]);
+        $post = Post::findOrFail($id);
+        $post->title = $validatedData['title'];
+        $post->contents = $validatedData['contents'];
+        $post->save();
+        session()->flash('message','Post was Updated.');
+        return redirect()->route('posts.index');
     }
 
     /**

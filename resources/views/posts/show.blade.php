@@ -7,7 +7,7 @@
     <p> {{$post->contents}}</p>
 
     <p class="text-sm">Posted by <a href={{route('users.show',$post->user->id)}}> {{$post->user->name}} </a></p>    
-    
+    <button> <a href="{{route('posts.edit',$post)}}">Edit Post </a> </button> 
     <h1 class="text-2xl font-bold">Comments:</h1>
     @foreach ($post->comments as $comment )
         

@@ -1,9 +1,9 @@
 @extends('layouts.main')
 
-@section('title','Create Post')
+@section('title','Edit Post')
 
 @section('content')
-    <form method="POST" action="{{route('posts.store')}}">
+    <form method='POST' action="{{route('posts.update',$post->id)}}">
         @csrf
         @method('POST')
         <p>Title: <input type="text" name="title"></p>

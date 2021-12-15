@@ -32,7 +32,10 @@ Route::post('/posts',[PostController::class, 'store'])
     ->middleware(['auth'])->name('posts.store'); 
 Route::get('/posts/{post}',[PostController::class, 'show'])
     ->name('posts.show');
-
+Route::get('/posts/{post}/edit',[PostController::class,'edit'])
+    ->middleware(['auth'])->name('posts.edit');
+Route::post('/posts/{post}',[PostController::class,'update'])
+    ->middleware(['auth'])->name('posts.update');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

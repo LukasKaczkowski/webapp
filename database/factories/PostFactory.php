@@ -20,7 +20,6 @@ class PostFactory extends Factory
             'user_id'=>$this->faker->numberBetween(1,$numberOfUsers),
             'title'=>$this->faker->realText(20,1),
             'contents'=>$this->faker->realText(200,1),
-            'likes'=>$this->faker->randomDigit,
         ];
     }
 }
