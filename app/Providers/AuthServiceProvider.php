@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
@@ -35,6 +36,11 @@ class AuthServiceProvider extends ServiceProvider
         //Only admin or same user can delete posts.
         Gate::define('deletePost', function (User $user, Post $post) {
             return (($user->id === $post->user_id) || ($user->isAdmin == 1));
+        });
+
+        //Only admin or same user can delete posts.
+        Gate::define('deleteComment', function (User $user, Comment $comment) {
+            return (($user->id === $comment->user_id) || ($user->isAdmin == 1));
         });
     }
 }

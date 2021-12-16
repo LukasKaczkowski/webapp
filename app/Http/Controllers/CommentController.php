@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Gate;
 class CommentController extends Controller
 {
     
@@ -39,7 +39,13 @@ class CommentController extends Controller
     public function destroy($id)
     {
         $comment = Comment::findOrFail($id);
-        $comment->delete();
-        return redirect()->route('posts.show',$comment->post_id)->with('message','Post was deleted.');
+        if(Gate::allows('deleteComment',['comment'=>$comment])) {
+            $comment->delete();
+            return redirect()->route('posts.show',$comment->post_id)->with('message','Post was deleted.');
+        }
+        else{
+            return redirect()->route('posts.show',$comment->post_id)->with('message','Not authorised to delete post.');
+        }
+
     }
 }
