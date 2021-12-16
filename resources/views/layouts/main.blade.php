@@ -24,6 +24,7 @@
                 </button>
             </a>       
         </form>
+        <button class="flex-1 m-4 max-w-xs">Welcome {{Auth::user()->name}}</button>
         @endif
         
     </nav>

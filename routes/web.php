@@ -42,10 +42,6 @@ Route::delete('/posts/{post}',[PostController::class,'destroy'])
 
 Route::post('/comments',[CommentController::class,'store'])
     ->middleware(['auth'])->name('comments.store');
-Route::get('/comments/{comment}/edit',[CommentController::class,'edit'])
-    ->middleware(['auth'])->name('comments.edit');
-Route::post('/comments/{comment}',[CommentController::class,'update'])
-    ->middleware(['auth'])->name('comments.update');
 Route::delete('/comments/{comment}',[CommentController::class,'destroy'])
     ->middleware(['auth'])->name('comments.destroy');
 
