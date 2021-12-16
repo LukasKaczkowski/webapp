@@ -49,8 +49,7 @@ class PostController extends Controller
         $post->contents = $validatedData['contents'];
         $post->save();
         
-        session()->flash('message','Post was created.');
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index')->with('message','Post was created.');
     }
 
     /**
@@ -94,8 +93,7 @@ class PostController extends Controller
         $post->title = $validatedData['title'];
         $post->contents = $validatedData['contents'];
         $post->save();
-        session()->flash('message','Post was Updated.');
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index')->with('message','Post was updated.');
     }
 
     /**
@@ -106,6 +104,8 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->delete();
+        return redirect()->route('posts.index')->with('message','Post was deleted.');
     }
 }

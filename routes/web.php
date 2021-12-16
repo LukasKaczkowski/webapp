@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +37,17 @@ Route::get('/posts/{post}/edit',[PostController::class,'edit'])
     ->middleware(['auth'])->name('posts.edit');
 Route::post('/posts/{post}',[PostController::class,'update'])
     ->middleware(['auth'])->name('posts.update');
+Route::delete('/posts/{post}',[PostController::class,'destroy'])
+    ->middleware(['auth'])->name('posts.destroy');
+
+Route::get('/comments/create/{id}',[CommentController::class,'create'])
+    ->middleware(['auth'])->name('comments.create');
+Route::get('/comments/{comment}/edit',[CommentController::class,'edit'])
+    ->middleware(['auth'])->name('comments.edit');
+Route::post('/comments/{comment}',[CommentController::class,'update'])
+    ->middleware(['auth'])->name('comments.update');
+Route::delete('/comments/{comment}',[CommentController::class,'destroy'])
+    ->middleware(['auth'])->name('comments.destroy');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
