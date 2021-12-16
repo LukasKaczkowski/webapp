@@ -4,20 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comment;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
     
-    /**
-     * Show the form for creating a  new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('comments.create',['id'=>$id]);
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -26,24 +17,19 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        dd(request);
+        $user = Auth::user();
         $validatedData = $request->validate([
             'message' =>  'required|max:254',
-
         ]);
+        $comment = new Comment;
+        $comment->user_id = $user->id;
+        $comment->post_id = $request['post_id'];
+        $comment->message = $request['message'];
+        $comment->save();
+        return redirect()->route('posts.show',$comment->post_id)->with('message','Comment was created.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
+  
     /**
      * Show the form for editing the specified resource.
      *
@@ -57,18 +43,6 @@ class CommentController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
@@ -76,6 +50,8 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comment = Comment::findOrFail($id);
+        $comment->delete();
+        return redirect()->route('posts.show',$comment->post_id)->with('message','Post was deleted.');
     }
 }

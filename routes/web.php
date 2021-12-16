@@ -32,7 +32,7 @@ Route::get('/posts/create',[PostController::class, 'create'])
 Route::post('/posts',[PostController::class, 'store'])
     ->middleware(['auth'])->name('posts.store'); 
 Route::get('/posts/{post}',[PostController::class, 'show'])
-    ->name('posts.show');
+    ->middleware(['auth'])->name('posts.show');
 Route::get('/posts/{post}/edit',[PostController::class,'edit'])
     ->middleware(['auth'])->name('posts.edit');
 Route::post('/posts/{post}',[PostController::class,'update'])
@@ -40,8 +40,8 @@ Route::post('/posts/{post}',[PostController::class,'update'])
 Route::delete('/posts/{post}',[PostController::class,'destroy'])
     ->middleware(['auth'])->name('posts.destroy');
 
-Route::get('/comments/create/{id}',[CommentController::class,'create'])
-    ->middleware(['auth'])->name('comments.create');
+Route::post('/comments',[CommentController::class,'store'])
+    ->middleware(['auth'])->name('comments.store');
 Route::get('/comments/{comment}/edit',[CommentController::class,'edit'])
     ->middleware(['auth'])->name('comments.edit');
 Route::post('/comments/{comment}',[CommentController::class,'update'])
