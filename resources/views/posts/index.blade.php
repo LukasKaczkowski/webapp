@@ -8,6 +8,7 @@
     </div>
     <p>All Posts on this forum:</p>
     <ul>
+        <!--Show each post-->
         @foreach ($posts as $post)
         <li>
             <div class='bg-gray-300 ml-4 mt-8 rounded-2xl pl-2 pt-2'>

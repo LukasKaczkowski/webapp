@@ -3,6 +3,7 @@
 @section('title','Edit Post')
 
 @section('content')
+    <!--Edit post-->
     <form method='POST' action="{{route('posts.update',$post->id)}}">
         @csrf
         @method('POST')

@@ -9,6 +9,6 @@
 
     <div class='flex justify-center'>
         <p>This website is a user forum where you can post about anything you want. <br>
-        To get started, click 'register' to create an account. You do not need an account to view the forum however one is needed to create posts or comments. </p>
+        To get started, click 'register' to create an account.</p>
     </div>
 @endsection

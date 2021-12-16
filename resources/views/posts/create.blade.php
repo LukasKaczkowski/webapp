@@ -3,6 +3,7 @@
 @section('title','Create Post')
 
 @section('content')
+    <!--Create new post-->
     <form method="POST" action="{{route('posts.store')}}">
         @csrf
         @method('POST')

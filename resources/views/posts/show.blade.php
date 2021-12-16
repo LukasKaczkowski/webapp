@@ -8,7 +8,9 @@
     <h1 class="text-2xl font-bold"> {{$post->title}}</h1>
     <p> {{$post->contents}}</p>
 
-    <p class="text-sm">Posted by <a class='font-bold' href={{route('users.show',$post->user->id)}}> {{$post->user->name}} </a></p>    
+    <p class="text-sm">Posted by <a class='font-bold' href={{route('users.show',$post->user->id)}}> {{$post->user->name}} </a></p>
+
+    <!--Edit post-->
     <button class="mt-4"> <a href="{{route('posts.edit',$post)}}">Edit Post </a> </button> 
     <form method="POST" action="{{route('posts.destroy',['post'=>$post])}}">
         @csrf
@@ -17,6 +19,8 @@
     </form>
     </div>
     <h1 class="text-2xl font-bold">Comments:</h1>
+    
+    <!--Show each comment-->
     @foreach ($post->comments as $comment )
         <div class='bg-gray-300 rounded-2xl mt-4 mb-4 ml-4 pl-2'>
         <h3 class="mt-6">{{$comment->message}}</h3>
@@ -29,8 +33,8 @@
         </div>
     @endforeach
     
+    <!--Adding new comment-->
     <p>Add new comment!</p>
-
     <form method="POST" action="{{route('comments.store')}}">
         @csrf
         
