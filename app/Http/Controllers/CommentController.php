@@ -29,18 +29,6 @@ class CommentController extends Controller
         return redirect()->route('posts.show',$comment->post_id)->with('message','Comment was created.');
     }
 
-  
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $comment = Comment::findOrFail($id);
-        return view('comments.edit',['comment'=>$comment    ]);
-    }
 
     /**
      * Remove the specified resource from storage.

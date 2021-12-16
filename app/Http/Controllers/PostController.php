@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 class PostController extends Controller
 {
     /**
@@ -73,7 +74,13 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::findOrFail($id);
-        return view('posts.edit',['post'=>$post]);
+        if(Gate::allows('editPost',['post'=>$post])) {
+            return view('posts.edit',['post'=>$post]); 
+        }
+        else{
+            return redirect()->route('posts.show',$post->id)->with('message','Not authorised to edit post.');
+        }
+        
     }
 
     /**
@@ -104,8 +111,14 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
+
         $post = Post::findOrFail($id);
-        $post->delete();
-        return redirect()->route('posts.index')->with('message','Post was deleted.');
+        if(Gate::allows('deletePost',['post'=>$post])) {
+            $post->delete();
+            return redirect()->route('posts.index')->with('message','Post was deleted.');
+        }
+        else{
+            return redirect()->route('posts.show',$post->id)->with('message','Not authorised to delete post.');
+        }
     }
 }

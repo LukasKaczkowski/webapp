@@ -21,7 +21,6 @@
         <div class='bg-gray-300 rounded-2xl mt-4 mb-4 ml-4 pl-2'>
         <h3 class="mt-6">{{$comment->message}}</h3>
         <h4 class="pb-2">Posted by <a class='font-bold' href={{route('users.show',$comment->user->id)}}> {{$comment->user->name}} </a></h4>
-        <a href="{{route('comments.edit',$post->id)}}"> Edit Comment</a> 
         <form method="POST" action="{{route('comments.destroy',$comment->id)}}}}">
             @csrf
             @method('DELETE')
@@ -37,7 +36,7 @@
         
         <p>Contents: <input type="text" name="message"></p>
         <input type="hidden" name="post_id" value="{{$post->id}}">
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" class="bg-indigo-400 hover:bg-indigo-700 hover:text-gray-100 text-2xl rounded py-1 px-2 mt-4">
         
     </form>
 @endsection

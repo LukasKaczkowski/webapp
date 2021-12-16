@@ -9,7 +9,7 @@
         <p>Title: <input type="text" name="title"></p>
         <p>Contents: <input type="text" name="contents"></p>
         <input type="submit" value="Submit">
-        <a href="{{route('posts.index')}}">Cancel</a>
+        <a href="{{route('posts.index',auth::id)}}">Cancel</a>
     
     </form>
 @endsection
