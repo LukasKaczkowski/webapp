@@ -40,6 +40,15 @@ Route::post('/posts/{post}',[PostController::class,'update'])
 Route::delete('/posts/{post}',[PostController::class,'destroy'])
     ->middleware(['auth'])->name('posts.destroy');
 
+Route::post('/comments',[CommentController::class,'store'])
+    ->middleware(['auth'])->name('comments.store');
+Route::get('/comments/{comment}/edit',[CommentController::class,'edit'])
+    ->middleware(['auth'])->name('comments.edit');
+Route::post('/comments/{comment}',[CommentController::class,'update'])
+    ->middleware(['auth'])->name('comments.update');
+Route::delete('/comments/{comment}',[CommentController::class,'destroy'])
+    ->middleware(['auth'])->name('comments.destroy');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

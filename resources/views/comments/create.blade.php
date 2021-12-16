@@ -3,11 +3,11 @@
 @section('title','Create Post')
 
 @section('content')
-    <form method="POST" action="{{route('posts.store')}}">
+    {{dd()}}
+    <form method="POST" action="{{route('comments.store')}}">
         @csrf
         @method('POST')
-        <p>Title: <input type="text" name="title"></p>
-        <p>Contents: <input type="text" name="contents"></p>
+        <p>Enter your message: <input type="text" name="message"></p>
         <input type="submit" value="Submit">
         <a href="{{route('posts.index')}}">Cancel</a>
     
